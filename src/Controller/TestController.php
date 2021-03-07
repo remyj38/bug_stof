@@ -26,7 +26,7 @@ class TestController extends AbstractController
             $em->persist($document);
 
             // Here, "getMyFile" returns the "UploadedFile" instance that the form bound in your $myFile property
-            $uploadableManager->markEntityToUpload($document, $document->getPath());
+            $uploadableManager->markEntityToUpload($document, $form->get('path')->getData());
 
             $em->flush();
         }
